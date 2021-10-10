@@ -16,7 +16,7 @@ Terraform v1.0.6
 
 ### **Core**
 
-All the components inside Core folder are related with Backbone Network Service eg:
+All the components inside `Core` folder are related with Backbone Network Service eg:
 
 - VPC
 - Subnet Configuration
@@ -26,7 +26,7 @@ All the components inside Core folder are related with Backbone Network Service 
 
 ### **Resources**
 
-All the components inside Resource folder are related to AWS Services that related with application deployment, eg:
+All the components inside `Resources` folder are related to AWS Services that related with application deployment, eg:
 
 - EKS
 - EC2
@@ -63,6 +63,8 @@ All the components inside Resource folder are related to AWS Services that relat
 
   ```
   git submodule update --init --recursive
+  -- or --
+  make sub-all
   ```
 
 - Assume Role for Terraform command
