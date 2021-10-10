@@ -1,0 +1,56 @@
+version: '3.6'
+
+#================================================================================================
+# NETWORK SETUP
+#================================================================================================
+networks:
+  zeroc0d3_net:
+    name: zeroc0d3_net
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.144.144.0/16
+
+#================================================================================================
+# VOLUME SETUP
+#================================================================================================
+volumes:
+  vol_pgadmin:
+    driver: ${VOLUMES_DRIVER:-local}
+    driver_opts:
+      o: bind
+      type: none
+      device: ${DATA_PGADMIN:-/opt/data/docker/pgadmin/storage}
+  vol_portainer:
+    driver: ${VOLUMES_DRIVER:-local}
+    driver_opts:
+      o: bind
+      type: none
+      device: ${DATA_PORTAINER:-/opt/data/docker/portainer2.9}
+  vol_postgres:
+    driver: ${VOLUMES_DRIVER:-local}
+    driver_opts:
+      o: bind
+      type: none
+      device: ${DATA_POSTGRESQL:-/opt/data/docker/postgresql/pgdata}
+
+services:
+#================================================================================================
+# PORTAINER
+#================================================================================================
+  portainer:
+    image: dockerframework/portainer:${PORTAINER_VERSION:-2.9}
+    container_name: ${CONTAINER_PORTAINER:-zeroc0d3_portainer}
+    restart: unless-stopped
+    ports:
+      - "${PORT_PORTAINER:-5212}:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - vol_portainer:/data
+    environment:
+      - PORTAINER_TEMPLATE=generic
+      - PORTAINER_VERSION=${PORTAINER_VERSION:-2.9}
+    privileged: true
+    networks:
+      zeroc0d3_net:
+        ipv4_address: ${CONTAINER_IP_PORTAINER:-172.144.144.5}
