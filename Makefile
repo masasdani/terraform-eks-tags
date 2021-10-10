@@ -14,7 +14,7 @@ export PATH_DOCKER="compose/docker"
 export PROJECT_NAME="terraform-eks-tags"
 
 export CI_REGISTRY     ?= hub.docker.com
-export CI_PROJECT_PATH ?= zeroc0d4
+export CI_PROJECT_PATH ?= zeroc0d3
 
 IMAGE          = $(CI_REGISTRY)/${CI_PROJECT_PATH}/zeroc0d3-eks-tags
 DIR            = $(shell pwd)
