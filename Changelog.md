@@ -7,3 +7,7 @@
 ## Version 0.1.1
 
 - Completed core & resources poc from DevOpsCorner.id
+
+## Version 0.1.2
+
+- Added container ubuntu as bastion access
