@@ -7,6 +7,9 @@
 # -----------------------------------------------------------------------------
 set -e
 
+TITLE="TERRAFORM OFFICIAL SUBMODULES"   # script name
+VER="2.0"                               # script version
+
 SUBMODULE_TERRAFORM="terraform-aws-alb \
     terraform-aws-autoscaling \
     terraform-aws-eks \
@@ -55,6 +58,7 @@ logo() {
   echo "$COL_RED ########: ########: ##:::. ##:. #######::. ######:::. #####::: ########::. #######:: $COL_END"
   echo "$COL_RED........::........::..:::::..:::.......::::......:::::.....::::........::::.......::: $COL_END"
   print_line1
+  echo "$COL_GREEN# $TITLE :: ver-$VER $COL_END"
 }
 
 header() {
@@ -82,7 +86,7 @@ submodule_terrafom() {
     do
       get_time
       print_line2
-      echo "$COL_GREEN[ $DATE ]       git@github.com:terraform-aws-modules/$SBTR.git \n"
+      echo "$COL_GREEN[ $DATE ]       git@github.com:terraform-aws-modules/$SBTR.git $COL_END"
       print_line2
       git submodule add git@github.com:terraform-aws-modules/$SBTR.git
       echo ""

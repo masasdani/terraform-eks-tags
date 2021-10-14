@@ -90,9 +90,9 @@ sub-community:
 	@echo '- DONE -'
 
 sub-all:
-	@echo "============================================"
-	@echo " Task      : Get All Submodules "
-	@echo " Date/Time : `date`"
-	@echo "============================================"
-	@git submodule update --init --recursive
-	@echo '- DONE -'
+	@make sub-official
+	@echo ""
+	@make sub-community
+	@echo ""
+	@echo "---"
+	@echo '- ALL DONE -'

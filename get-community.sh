@@ -7,6 +7,9 @@
 # -----------------------------------------------------------------------------
 set -e
 
+TITLE="TERRAFORM COMMUNITY SUBMODULES"  # script name
+VER="2.0"                               # script version
+
 SUBMODULE_TERRAFORM="git@github.com:cloudposse/terraform-aws-route53-alias.git \
     git@github.com:cloudposse/terraform-aws-s3-log-storage.git \
     git@github.com:cloudposse/terraform-null-label.git \
@@ -47,6 +50,7 @@ logo() {
   echo "$COL_RED ########: ########: ##:::. ##:. #######::. ######:::. #####::: ########::. #######:: $COL_END"
   echo "$COL_RED........::........::..:::::..:::.......::::......:::::.....::::........::::.......::: $COL_END"
   print_line1
+  echo "$COL_GREEN# $TITLE :: ver-$VER $COL_END"
 }
 
 header() {
@@ -74,7 +78,7 @@ submodule_terrafom() {
     do
       get_time
       print_line2
-      echo "$COL_GREEN[ $DATE ]       $SBTR \n"
+      echo "$COL_GREEN[ $DATE ]       $SBTR $COL_END"
       print_line2
       git submodule add $SBTR
       echo ""
