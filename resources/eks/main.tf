@@ -129,12 +129,6 @@ resource "aws_iam_openid_connect_provider" "cluster" {
 ##############################################################
 # EKS Nodes Config
 ##############################################################
-
-#============================================
-# NODE GROUP - SHARED (MBSS, TRIPATRA)
-#============================================
-
-# MBSS
 resource "aws_eks_node_group" "devops_poc" {
   cluster_name    = aws_eks_cluster.aws_eks.name
   node_group_name = "devopscorner-staging"
